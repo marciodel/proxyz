@@ -44,6 +44,7 @@ func (pc *ParseContext) importPackage(currentPackagePath string, importPathOrPac
 		rawPackages, err := packages.Load(&packages.Config{
 			Mode: packages.NeedName | packages.NeedImports | packages.NeedDeps | packages.NeedSyntax,
 			Fset: pc.fileSet,
+			Tests: true,
 		}, packagePattern)
 
 		if err != nil {
